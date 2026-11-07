@@ -81,7 +81,7 @@ func dirFromDelta(dx, dy float32) Dir {
 }
 
 type Frame struct {
-	pixels []byte // 32x32x4 in Wayland ARGB8888 (Little Endian: [B, G, R, A])
+	pixels []byte
 	solid  [Size][Size]bool
 }
 
@@ -746,7 +746,6 @@ func main() {
 		cat.outputs = append(cat.outputs, outSurf)
 	}
 
-	// Main tick loop
 	for !cat.exit {
 		hasConfigured := false
 		for _, o := range cat.outputs {
